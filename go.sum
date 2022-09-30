@@ -1,0 +1,6 @@
+github.com/rclancey/encoding-form v0.0.1 h1:KG4sHM5AaS/mFfcOrrKL8+R5xxUPI8n80JNjdgHpQtY=
+github.com/rclancey/encoding-form v0.0.1/go.mod h1:ChYc5owFO1p8JgscPZXeSVzHJQFf5bPibziayhXjX/A=
+github.com/rclancey/generic v0.0.1 h1:1u0XJuT3d7gflI0q0XHAhbC57t0OZs19bQxm49kpfF0=
+github.com/rclancey/generic v0.0.1/go.mod h1:zho0RO7YpiJO3GWsz1Y4H6wtpuhxCj0uYIpFV5iS1xk=
+github.com/rclancey/generic v0.0.2 h1:F7KD1ebmkuJtTSi7YyqEnZ/cdWvpVRApOtL/lzwmtJA=
+github.com/rclancey/generic v0.0.2/go.mod h1:dc8dWX+rh1dtigw0z9YhtbWoilnKrC4zOqhT621EhMk=
