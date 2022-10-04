@@ -38,6 +38,7 @@ type basicEventSink struct {
 func NewEventSink(logTTL time.Duration) EventSink {
 	return &basicEventSink{
 		listeners: map[string][]EventHandler{},
+		eventTypes: map[string]Event{},
 		mutex: &sync.Mutex{},
 		log: generic.NewLinkedList[Event](),
 		logTTL: logTTL,
