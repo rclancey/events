@@ -1,7 +1,9 @@
 package events
 
 import (
+	"encoding/json"
 	"errors"
+	"io"
 	"sort"
 	"strings"
 	"sync"
@@ -214,4 +216,27 @@ func (es *PrefixedEventSource) RegisterEventType(ev Event) {
 
 func (es *PrefixedEventSource) ListEventTypes() []Event {
 	return es.Filter(es.EventSink.ListEventTypes())
+}
+
+type LoggedEventSink struct {
+	EventSink
+	w io.Writer
+}
+
+func NewLoggedEventSink(sink EventSink, w io.Writer) EventSink {
+	return &LoggedEventSink{sink, w}
+}
+
+func (es *LoggedEventSink) Fire(ev Event) {
+	data, err := json.Marshal(ev)
+	if err == nil {
+		data = append(data, '\n')
+		es.w.Write(data)
+	}
+	es.EventSink.Fire(ev)
+}
+
+func (es *LoggedEventSink) Emit(eventType string, data interface{}) {
+	ev := NewEvent(eventType, data)
+	es.Fire(ev)
 }
